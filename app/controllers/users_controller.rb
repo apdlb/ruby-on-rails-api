@@ -1,4 +1,5 @@
 class UsersController < ApplicationController
+  skip_before_action :authorized, only: [ :create ]
   before_action :set_user, only: %i[ show update destroy ]
 
   # GET /users
@@ -36,6 +37,11 @@ class UsersController < ApplicationController
   # DELETE /users/1
   def destroy
     @user.destroy!
+  end
+
+  # GET /users/me
+  def me
+    render json: @me
   end
 
   private

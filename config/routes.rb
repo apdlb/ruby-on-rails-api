@@ -1,4 +1,6 @@
 Rails.application.routes.draw do
+  resources :auth
+  get "/users/me", to: "users#me"
   resources :users
   # Define your application routes per the DSL in https://guides.rubyonrails.org/routing.html
 
